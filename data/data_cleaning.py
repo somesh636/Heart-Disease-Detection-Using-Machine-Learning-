@@ -1,5 +1,4 @@
 import sys
-import numpy as np
 import pandas as pd
 
 """ Reads data file into one long list """
@@ -14,6 +13,7 @@ def fileToList(filename):
         long_list+=line
 
     return long_list
+
 
 """ Turns long list from fileToList into nx76 matrix """
 def reshapeList(in_list):
@@ -30,6 +30,14 @@ def reshapeList(in_list):
         sys.exit(1)
 
     return out_list
+
+
+""" Converts reshaped list to dataframe """
+def convertToDataframe(prepared_list):
+    column_dict = getColumnLabels()
+    column_labels = [column_dict[i] for i in range(76)]
+    dataframe = pd.DataFrame.from_records(prepared_list, columns=column_labels)
+    return dataframe
 
 """ Harcoded column name and comments """
 def getColumnComments():
@@ -195,8 +203,7 @@ if __name__=="__main__":
         raw_data_list = fileToList(input_file)
         prepared_list = reshapeList(raw_data_list)
         dataframe = convertToDataframe(prepared_list)
-        dataframe.to_csv(out_file)
-        breakpoint()
-        pass
+        dataframe.to_csv(output_file)
+        
     
 
