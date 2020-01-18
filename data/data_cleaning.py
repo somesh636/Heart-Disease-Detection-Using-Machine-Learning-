@@ -1,3 +1,37 @@
+import sys
+import numpy as np
+import pandas as pd
+
+""" Reads data file into one long list """
+def fileToList(filename):
+    with open(filename, mode='r') as f:
+        line_list = f.readlines()
+    
+    intermediate_list = [line.split() for line in line_list]
+    long_list = []
+
+    for line in intermediate_list:
+        long_list+=line
+
+    return long_list
+
+""" Turns long list from fileToList into nx76 matrix """
+def reshapeList(in_list):
+    try:
+        assert(len(in_list)%76==0)
+        out_list=[]
+        num_rows = len(in_list)//76
+        for row in range(num_rows):
+            idx = row*76
+            out_list.append(in_list[idx:idx+76])
+        
+    except AssertionError: #wrong format data
+        print("Raw data not in correct format")
+        sys.exit(1)
+
+    return out_list
+
+""" Harcoded column name and comments """
 def getColumnComments():
     comment_dict = {3:"sex (1 = male; 0 = female)",
                     4:"chest pain location (1 = substernal; 0 = otherwise)",
@@ -63,6 +97,7 @@ def getColumnComments():
     }
     
     return comment_dict
+
 
 def getColumnLabels():
     label_dict = {0:"id",
@@ -142,4 +177,26 @@ def getColumnLabels():
                   74:"junk",
                   75:"name",
                   }
+    
     return label_dict
+
+
+def usage():
+    return "usage: data_cleaning input_file output_file"
+
+if __name__=="__main__":
+    if len(sys.argv) != 3:
+        print(usage())
+        sys.exit(0)
+    else:
+        input_file = sys.argv[1]
+        output_file = sys.argv[2]
+        
+        raw_data_list = fileToList(input_file)
+        prepared_list = reshapeList(raw_data_list)
+        dataframe = convertToDataframe(prepared_list)
+        dataframe.to_csv(out_file)
+        breakpoint()
+        pass
+    
+

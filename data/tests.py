@@ -14,7 +14,7 @@ def test_noDups(test_dict):
     assert(len(test_vals)==len(set(test_vals)))
     pass
 
-if __name__=='main':
+if __name__=="__main__":
     test_dict = data_cleaning.getColumnLabels()
     
     test_noneMissing(test_dict)
