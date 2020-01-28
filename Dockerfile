@@ -1,9 +1,10 @@
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev
 
-WORKDIR /app
+COPY ./app/ /app/
+WORKDIR /app/
 
 RUN pip install -r flask-serv-req.txt
 
