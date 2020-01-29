@@ -5,7 +5,7 @@ import pandas as pd
 def fileToList(filename):
     with open(filename, mode='r') as f:
         line_list = f.readlines()
-    
+        
     intermediate_list = [line.split() for line in line_list]
     long_list = []
 
@@ -18,6 +18,7 @@ def fileToList(filename):
 """ Turns long list from fileToList into nx76 matrix """
 def reshapeList(in_list):
     try:
+        #breakpoint()
         assert(len(in_list)%76==0)
         out_list=[]
         num_rows = len(in_list)//76
