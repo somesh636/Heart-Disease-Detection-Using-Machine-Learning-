@@ -1,14 +1,6 @@
 import pandas as pd 
 import matplotlib.pyplot as plt 
 import seaborn as sns
-# import warnings filter
-#from warnings import simplefilter
-# ignore all future warnings
-#simplefilter(action='ignore', category = FutureWarning)
-# import warnings filter
-#from warnings import simplefilter
-# ignore all future warnings
-#simplefilter(action='ignore', category = FutureWarning)
 
 # set the customized settigs for pandas 
 pd.set_option('display.max_rows', None)
@@ -18,7 +10,7 @@ pd.set_option('display.max_columns', None)
 # get the data 
 data_heart = pd.read_csv('~/D_Drive/Projects/WebApp/dataset/cleaveland.csv', header = None)
 data_heart = data_heart.apply(pd.to_numeric, errors='coerce')
-print(data_heart)
+#print(data_heart)
 
 #for DataFrame format for the library use
 data_heart.columns = ['age', 'sex', 'cp', 'trestbps', 'chol',
@@ -54,17 +46,17 @@ from sklearn.model_selection import train_test_split
 X = data_heart.iloc[:, :-1].values 
 y = data_heart.iloc[:, -1].values 
 #print for test
-print('X values:\n', X)
-print('Y values:\n' , y)
+#print('X values:\n', X)
+#print('Y values:\n' , y)
 X_train, X_test, y_train, y_test = train_test_split( X, y, test_size = 0.2, random_state = 0)
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.fit_transform(X_test)
 #print for test
-print('X_train: \n',X_train)
-print('X_test:\n', X_test)
-print('y_train: \n',y_train)
-print('y_test:\n', y_test)
+#print('X_train: \n',X_train)
+#print('X_test:\n', X_test)
+#print('y_train: \n',y_train)
+#print('y_test:\n', y_test)
 
 # ********************** SVM and SV Classifier **************************************************************
 from sklearn.svm import SVC 
