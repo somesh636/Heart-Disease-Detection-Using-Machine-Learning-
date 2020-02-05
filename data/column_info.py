@@ -1,4 +1,4 @@
-import getopt
+import sys
 
 """ Harcoded column name and comments """
 def getColumnComments():
