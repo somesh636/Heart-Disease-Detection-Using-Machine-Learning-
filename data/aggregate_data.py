@@ -10,11 +10,11 @@ if __name__=="__main__":
         input_files = sys.argv[1:-1]
         output_file = sys.argv[-1]
 
-        df_list = [pd.dataframe.from_csv(input_file) for input_file in input_files]
-        
-
-
+        df_list = [pd.read_csv(input_file) for input_file in input_files]
+        dataframe = pd.concat(df_list)
+        dataframe = dataframe.drop(dataframe.columns[0:2], axis=1) #COWBOY LINE
         dataframe.to_csv(output_file)
+        
     else:
         print(usage())
         sys.exit(1)
