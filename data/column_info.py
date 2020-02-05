@@ -1,43 +1,4 @@
 import sys
-import pandas as pd
-
-""" Reads data file into one long list """
-def fileToList(filename):
-    with open(filename, mode='r') as f:
-        line_list = f.readlines()
-    
-    intermediate_list = [line.split() for line in line_list]
-    long_list = []
-
-    for line in intermediate_list:
-        long_list+=line
-
-    return long_list
-
-
-""" Turns long list from fileToList into nx76 matrix """
-def reshapeList(in_list):
-    try:
-        assert(len(in_list)%76==0)
-        out_list=[]
-        num_rows = len(in_list)//76
-        for row in range(num_rows):
-            idx = row*76
-            out_list.append(in_list[idx:idx+76])
-        
-    except AssertionError: #wrong format data
-        print("Raw data not in correct format")
-        sys.exit(1)
-
-    return out_list
-
-
-""" Converts reshaped list to dataframe """
-def convertToDataframe(prepared_list):
-    column_dict = getColumnLabels()
-    column_labels = [column_dict[i] for i in range(76)]
-    dataframe = pd.DataFrame.from_records(prepared_list, columns=column_labels)
-    return dataframe
 
 """ Harcoded column name and comments """
 def getColumnComments():
@@ -190,20 +151,29 @@ def getColumnLabels():
 
 
 def usage():
-    return "usage: data_cleaning input_file output_file"
+    return "usage: column_info <column number>"
+
 
 if __name__=="__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 2:
         print(usage())
-        sys.exit(0)
+        sys.exit(1)        
     else:
-        input_file = sys.argv[1]
-        output_file = sys.argv[2]
+        column_no= int(sys.argv[1])
+        column_labels= getColumnLabels()
+        column_info= getColumnComments()
         
-        raw_data_list = fileToList(input_file)
-        prepared_list = reshapeList(raw_data_list)
-        dataframe = convertToDataframe(prepared_list)
-        dataframe.to_csv(output_file)
+        if column_no in column_labels.keys():
+            this_label = column_labels[column_no]
+            if column_no in column_info.keys():
+                this_info = ":\t{0}".format(column_info[column_no])
+            else:
+                this_info = ""
+            print("Column {0}\t{1}{2}".format(column_no, this_label, this_info))
+        else:
+            print("Column {0} not in the dataset!".format(column_no))
+            sys.exit(1)
+            
         
     
 
