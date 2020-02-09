@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request,url_for
 from flask_sqlalchemy  import SQLAlchemy
 from datetime import datetime
-
+import pickle
+import numpy as np
 
 application = app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///posts.db'
 db=SQLAlchemy(app)
 class Feature(db.Model):
@@ -59,8 +61,21 @@ def posts():
         db.session.add(new_post)
         db.session.commit()
         all_posts = Feature.query.order_by(Feature.date_created.desc()).first()
-        #all_posts = Feature.query().one()
-        return render_template('hello.html',f_data=all_posts)
+        inp=[all_posts.age,all_posts.gender,all_posts.chest_pain_type,all_posts.resting_blood_pressure,\
+            all_posts.serum_cholestoral,all_posts.fasting_blood_sugar,all_posts.resting_electrocardiographic_results,\
+            all_posts.maximum_heart_rate_achieved,all_posts.exercise_induced_angina,all_posts.ST_depression_induced,\
+            all_posts.slope_of_the_peak_exercise_ST_segment,all_posts.major_vessels_colored_by_flourosopy,\
+            all_posts.thal]
+        inp=np.reshape(inp,(1, 13))
+        model= pickle.load(open('model_pickle.pkl','rb'))
+        print(inp)
+        prediction=model.predict(inp)
+        if prediction==1:
+            t='High Risk of Heart Disease'
+        elif prediction==0:
+            t='Low Risk of Heart Disease'
+        
+        return render_template('hello.html',f_data=all_posts,prediction=t)
         
     else:
         return render_template('index.htm')
