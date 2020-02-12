@@ -1,15 +1,10 @@
-
-# Table of Contents
-
-1.  [Overview](#org6690aa0)
-2.  [Structure](#orgdcf927c)
-3.  [How to use](#org9556092)
-
+# *Know Your Heart*
+# ECE 651 Software Engineering Project
 
 
 <a id="org6690aa0"></a>
 
-# Overview
+## Overview
 
 -   This project is a web application which uses machine learning to analyze the UCI heart disease dataset and make predictions based on supplied medical data.
 -   The website should display the risk factors to the user as well as a probability or confidence score of their health in the coming years. If possible, the lifestyle choices to be made should also be displayed.
@@ -17,7 +12,7 @@
 
 <a id="orgdcf927c"></a>
 
-# Structure
+## Structure
 
 The project (so far) is arranged as follows
 .|.
@@ -47,7 +42,7 @@ The project (so far) is arranged as follows
 
 <a id="org9556092"></a>
 
-# How to use
+## How to use
 
 1.  Navigate to the project root
 2.  At the command prompt enter \`flask run\`
