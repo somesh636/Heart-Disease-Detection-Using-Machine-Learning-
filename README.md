@@ -20,24 +20,49 @@ The project (so far) is arranged as follows
 ..|app.py|
 ..|requirements<sub>flask.txt</sub>|
 ..|static|
-&#x2026;|<static content for site>|
+...|<static content for site>|
 ..|templates|
-&#x2026;|<html templates for site>|
+...|<html templates for site>|
 .|analysis|
 ..|data|
 ..|documentation|
-&#x2026;|<information on the dataset>|
+...|<information on the dataset>|
 ..|raw<sub>data</sub>|
-&#x2026;|<the raw UCI heart disease dataset>|
+...|<the raw UCI heart disease dataset>|
 ..|utils|
-&#x2026;|<python scripts for data preparation>|
+...|<python scripts for data preparation>|
 .|docker|
 ..|analysis|
 ..|app|
-&#x2026;|Dockerfile|
+...|Dockerfile|
 ..|database|
 .|kubernetes.yaml|
 .|README.md|
+
+.
++-- app
+| 	+-- app.py
+|	+-- requirements<sub>flask.txt</sub>
+|	+-- static
+|	|	+-- 'static content for site'
+|	+-- templates
+|	|	+-- 'html templates for site'
++-- analysis
+| 	+-- data
+|	|	+-- 'the data files'
+|	+-- documentation
+|	|	+-- 'information on the dataset'
+|	+-- raw<sub>data</sub>
+|	|	+-- 'the raw UCI heart disease dataset'
+|	+-- utils
+|	|	+-- 'python scripts for data preparation'
++-- docker
+|	+-- analysis
+|	+-- app
+|	|	+-- Dockerfile
+|	+-- database
++-- kubernetes.yaml
++-- README.md
 
 
 <a id="org9556092"></a>
