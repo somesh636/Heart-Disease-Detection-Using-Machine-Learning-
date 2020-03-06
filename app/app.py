@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
 from wtforms import Form, TextAreaField, validators 
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_url_path = "",
+            static_folder = "/static" ,
+            template_folder = "/templates")
 
 class HelloForm(Form):
     sayhello = TextAreaField('', [validators.DataRequired()])
