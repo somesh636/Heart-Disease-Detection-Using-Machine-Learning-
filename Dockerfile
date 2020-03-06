@@ -10,7 +10,7 @@ RUN pip install -r flask-serv-req.txt
 
 #ENTRYPOINT [ "python" ]
 #CMD [ "app.py" ]
-CMD [ "flask", "run", "--host", "0.0.0.0" ]
+CMD [ "flask", "run", "--host", "0.0.0.0", "--port", "5000"]
 
 
 
