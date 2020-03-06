@@ -15,54 +15,30 @@
 ## Structure
 
 The project (so far) is arranged as follows
-.|.
-.|app|
-..|app.py|
-..|requirements<sub>flask.txt</sub>|
-..|static|
-...|<static content for site>|
-..|templates|
-...|<html templates for site>|
-.|analysis|
-..|data|
-..|documentation|
-...|<information on the dataset>|
-..|raw<sub>data</sub>|
-...|<the raw UCI heart disease dataset>|
-..|utils|
-...|<python scripts for data preparation>|
-.|docker|
-..|analysis|
-..|app|
-...|Dockerfile|
-..|database|
-.|kubernetes.yaml|
-.|README.md|
-
 .
-+-- app
-| 	+-- app.py
-|	+-- requirements<sub>flask.txt</sub>
-|	+-- static
-|	|	+-- 'static content for site'
-|	+-- templates
-|	|	+-- 'html templates for site'
-+-- analysis
-| 	+-- data
-|	|	+-- 'the data files'
-|	+-- documentation
-|	|	+-- 'information on the dataset'
-|	+-- raw<sub>data</sub>
-|	|	+-- 'the raw UCI heart disease dataset'
-|	+-- utils
-|	|	+-- 'python scripts for data preparation'
-+-- docker
-|	+-- analysis
-|	+-- app
-|	|	+-- Dockerfile
-|	+-- database
-+-- kubernetes.yaml
-+-- README.md
++-- app/
+| 	+-- app.py/
+|	+-- requirements<sub>flask.txt</sub>/
+|	+-- static/
+|	|	+-- 'static content for site'/
+|	+-- templates/
+|	|	+-- 'html templates for site'/
++-- analysis/
+| 	+-- data/
+|	|	+-- 'the data files'/
+|	+-- documentation/
+|	|	+-- 'information on the dataset'/
+|	+-- raw<sub>data</sub>/
+|	|	+-- 'the raw UCI heart disease dataset'/
+|	+-- utils/
+|	|	+-- 'python scripts for data preparation'/
++-- docker/
+|	+-- analysis/
+|	+-- app/
+|	|	+-- Dockerfile/
+|	+-- database/
++-- kubernetes.yaml/
++-- README.md/
 
 
 <a id="org9556092"></a>
