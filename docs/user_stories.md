@@ -7,9 +7,9 @@
 * "As **a chef** I would like the ingredient list to be **displayed without the need for hands** so that I can **read the recipe while cooking**."
 
 ## User Stories
-*
-*
-*
+* As **someone concerned about heart disease,** I would like to **enter a simple test result and receive graphical and numerical results of my heart disease risk over time.** This will allow me to **easily interpret the prediction and make better overall health choices.** 
+* As **a person confirmed to be suffering from heart disease,** I would like to **have the highest risk areas highlighted for me, with links to resources to address these issues.** This will allow me to **target the most important areas first.**
+* As **a generic user,** I would like to have the option **enter a minimal subset of test features.** This is because medical tests are expensive and invasive and I would like **to receive results with as little distress as possible.**
 *
 *
 *
