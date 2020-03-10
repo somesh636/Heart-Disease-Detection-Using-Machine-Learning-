@@ -14,11 +14,3 @@
 * As a **user** I want to **know my chances of getting a stroke in a span of 6-12 months.** This is so I can **take a more proactive approach to my healthcare.**
 * As a user, I would like **to have the description of each field** so that **it will be easy for me to understand the input I need to supply.**
 * As an **end user** I would like the tests **to be accurate and free from false positives.**
-*
-*
-*
-*
-*
-*
-*
-*
