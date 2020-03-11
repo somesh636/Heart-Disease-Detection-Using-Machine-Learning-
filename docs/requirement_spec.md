@@ -1,12 +1,18 @@
-# Requirements Document
+\# Requirements Document
 ## Requirements
-* As **someone concerned about heart disease,** I would like to **enter a simple test result and receive graphical and numerical results of my heart disease risk over time.** This will allow me to **easily interpret the prediction and make better overall health choices.** 
-* As **a person confirmed to be suffering from heart disease,** I would like to **have the highest risk areas highlighted for me, with links to resources to address these issues.** This will allow me to **target the most important areas first.**
-* As **a user,** I would like to be able to **enter a minimal subset of test features.** This is because medical tests are expensive and invasive and I would like **to receive results with as little distress as possible.**
-* As a **website user**, I want to **be able to submit feedback,** so that the **website owners can consider my opinions and concerns** during future website updates.
-* As a **user** I want to **know my chances of getting a stroke in a span of 6-12 months.** This is so I can **take a more proactive approach to my healthcare.**
-* As a user, I would like **to have the description of each field** so that **it will be easy for me to understand the input I need to supply.**
-* As an **end user** I would like the tests **to be accurate and free from false positives.**
+### Functional
+* The user should enter their test data and receive graphical and numerical results of their heart disease risk over time. This should take the form of charts and perhaps an index or score of their heart disease risk.
+* Upon receiving results, the highest risk areas should be prominent so that the user can address these first. Links to resources are also necessary.
+* There must be a method for data entry which permits a minimal subset of features. That is, the analysis can run with the minimum data but not necessarily well. Any less should be forbidden.
+* The user should be able to submit feedback by some method, for example an email form, chat box or similar.
+* The user should have an alert or notification if their chance of stroke within 6-12 months is high.
+
+### Non-functional
+#### Look and Feel
+* Each field for data input should have a heading describing what is inspected. A full description should be readily available, eg by mousing over the input field.
+#### QoS
+* The tests should return accurate results so some kind of visual indication of confidence should be available.
+
 ## Modularity
 Modularity will be achieved by separating the functionality of the program into different folders within the directory structure and developing modules within these.  
 Splitting up the application like this is a minor step, but will hopefully set the standard for modularity that will propagate down to the individual modules.  
@@ -21,8 +27,8 @@ Currently, the structure is planned as follows:
 +-- docs <br/>
 |	+-- (documentation) <br/>
 +-- docker <br/>
-|	+-- (docker config files) <br/r>
+|	+-- (docker config files) <br/>
 +-- (Other config files) <br/>
 
 ## Testing
-Since this project is relatively small, only unit tests should be considered and these should be written for every module.
+Since this project is relatively small, only unit tests should be necessary and must therefore take priority. However, higher level tests should be considered and implemented if possible.
