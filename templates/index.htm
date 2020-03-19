@@ -35,7 +35,7 @@
         <img src="static/images/help3.png">
       </button>
 
-      <input type="number"  name="age" value="" class="form-control" required>
+      <input type="number" min="0" max="123"  name="age" value="" class="form-control" required>
       </div>
 
       <div class="form-group">
@@ -67,7 +67,7 @@
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in mm Hg on admission to the hospital">
           <img src="static/images/help3.png">
         </button>
-        <input type="number" name="resting_blood_pressure" value="" class="form-control" required>
+        <input type="number" min="0" max="300" name="resting_blood_pressure" value="" class="form-control" required>
       </div>
 
       <div class="form-group">
@@ -76,7 +76,7 @@
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in mg/dl">
           <img src="static/images/help3.png">
         </button>
-        <input type="number" name="serum_cholestoral" value="" class="form-control" required>
+        <input type="number" min="0" max="700" name="serum_cholestoral" value="" class="form-control" required>
       </div>
       
       <div class="form-group">
@@ -101,7 +101,7 @@
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in beats per minute (BPM)">
           <img src="static/images/help3.png">
         </button>
-        <input type="number" name="maximum_heart_rate_achieved" value="" class="form-control" required>
+        <input type="number" min="0" max="300" name="maximum_heart_rate_achieved" value="" class="form-control" required>
       </div>
 
       <div class="form-group">
@@ -114,10 +114,10 @@
 
       <div class="form-group">
         <label for="ST_depression_induced">ST depression induced</label>
-        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="exercise relative to rest">
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="ST depression induced by exercise relative to rest">
           <img src="static/images/help3.png">
         </button>
-        <input type="number" step="any" name="ST_depression_induced" value="" class="form-control" required>
+        <input type="number" min="0" max="7" step="any" name="ST_depression_induced" value="" class="form-control" required>
       </div>
 
       <div class="form-group">
@@ -167,9 +167,9 @@
      <div id="tabContainer">
     <div id="tabs">
       <ul>
-        <li id="tab1"><a href="#tabPanel1">Causes</a></li>
-        <li id="tab2"><a href="#tabPanel2">Types</a></li>
-        <li id="tab3"><a href="#tabPanel3">Prevention</a></li>
+        <li id="tab1"><a href="#tabPanel1"><b>Main Causes</b></a></li>
+        <li id="tab2"><a href="#tabPanel2"><b>Types</b></a></li>
+        <li id="tab3"><a href="#tabPanel3"><b>Prevention</b></a></li>
       </ul>
     </div>
     <div id="containers">
