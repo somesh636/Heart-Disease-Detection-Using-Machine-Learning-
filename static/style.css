@@ -5,6 +5,15 @@ html, body {
   opacity: .98;
 
 }
+/* .required:after {
+    content:" *";
+    color: red;
+  } */
+
+.required:before{
+content:"*";
+font-weight:bold;
+}
 
 /* .btn {
 	display:block;
