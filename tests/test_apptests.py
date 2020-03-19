@@ -2,23 +2,28 @@ import os
 import tempfile
 import pytest
 
-from application import create_app
+from project.app.application import create_app
+#"""
+
+def test_empty_db(client):
+    rv=client.get('/')
+    assert b'No entries here so far' in rv.data
 
 @pytest.fixture
 def client():
-    db_fd, cv_application.config['DATABASE'] = tempfile.mkstemp()
     cv_application = create_app()
+    db_fd, cv_application.config['DATABASE'] = tempfile.mkstemp()
     cv_application.config['TESTING']=True
 
     with cv_application.test_client() as client:
         with cv_application.app_context():
             cv_application.init_db()
         yield client
-
+    print("woohoo!")
     os.close(db_fd)
     os.unlink(cv_application.config['DATABASE'])
 """
-class TestAppInput(unittest.TestCase): # these tests deal with the input side of things
+class test_AppInput(unittest.TestCase): # these tests deal with the input side of things
     @classmethod
     def setup_class(cls): # set up
         self.application = create_app()
