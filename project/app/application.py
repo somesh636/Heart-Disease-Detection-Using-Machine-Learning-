@@ -4,11 +4,13 @@ from datetime import datetime
 import pickle
 import numpy as np
 
-def create_app():
+def create_app(db_uri='sqlite:///posts.db'):
     app = Flask(__name__)
 
-    app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///posts.db'
+    app.config['SQLALCHEMY_DATABASE_URI']=db_uri
+    
     db=SQLAlchemy(app)
+    
     class Feature(db.Model):
         id=db.Column(db.Integer,primary_key=True)
         age = db.Column(db.Integer,nullable=False)
@@ -32,6 +34,7 @@ def create_app():
     @app.route('/',methods=['POST','GET'])
     def posts():
         if request.method == 'POST':
+            breakpoint()
             post_age = request.form['age']
             post_gender = request.form['gender']
             post_chest_pain_type = request.form['chest_pain_type']
@@ -81,9 +84,11 @@ def create_app():
         else:
             return render_template('index.htm')
             all_posts = Feature.query.order_by(Feature.date_created).all()
+            
     return app
 
 
 if __name__ == '__main__':
     app=create_app()
+    breakpoint()
     app.run(debug=True)
