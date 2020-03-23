@@ -26,16 +26,27 @@
 <div class="row">
   <div class="col">
     <form  action="/" method="POST" id="form">
+
+      <div class="form-group row style=" style="padding-left: 15px">
+        <div class="col-xs-3">
+          <label for="first_name">
+              First Name</label>
+          <input type="text" class="form-control" id="first_name" name="first_name" required>
+      </div>
+      <div class="col-xs-3" style="padding-left: 40px" >
+          <label for="last_name">
+              Last Name</label>
+          <input type="text" class="form-control" id="last_name" name="last_name" required>
+      </div>
+      </div>
+
       <div class="form-group">
       <label for="age">Age</label>
-      
       <!-- <label for="age" class="units">(in years)</label> -->
-
       <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in years">
         <img src="static/images/help3.png">
       </button>
-
-      <input type="number" min="0" max="123"  name="age" value="" class="form-control" required>
+      <input type="number" min="0" max="150"  name="age" value="" class="form-control" required>
       </div>
 
       <div class="form-group">
@@ -62,34 +73,45 @@
         </div>
         
       <div class="form-group">
-        <label for="resting_blood_pressure">Resting Blood Pressure</label>
-        <!-- <label for="resting_blood_pressure" class="units">(in mm Hg on admission to the hospital)</label> -->
-        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in mm Hg on admission to the hospital">
-          <img src="static/images/help3.png">
-        </button>
-        <input type="number" min="0" max="300" name="resting_blood_pressure" value="" class="form-control" required>
-      </div>
-
-      <div class="form-group">
-        <label for="serum_cholestoral">Serum Cholestoral</label>
-        <!-- <label for="serum_cholestoral" class="units">(in mg/dl)</label> -->
-        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in mg/dl">
+        <label for="serum_cholestoral">Serum cholestoral</label>
+        <!-- <label for="serum_cholestoral" class="units">(in mm Hg on admission to the hospital)</label> -->
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="serum cholestoral in mg/dl">
           <img src="static/images/help3.png">
         </button>
         <input type="number" min="0" max="700" name="serum_cholestoral" value="" class="form-control" required>
       </div>
+
+      <div class="form-group">
+        <label for="proximal_left_anterior_descending_artery">Proximal Left Anterior Descending Artery</label>
+        <!-- <label for="proximal_left_anterior_descending_artery" class="units">(in mg/dl)</label> -->
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Proximal Left Anterior Descending Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="proximal_left_anterior_descending_artery" id="proximal_left_anterior_descending_artery" class="form-control">
+          <option value=0>0</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+        </select>
+      </div>
       
       <div class="form-group">
-        <label for="fasting_blood_sugar">Fasting Blood Sugar</label>
-        <select name="fasting_blood_sugar" id="fasting_blood_sugar" class="form-control">
-          <option value=1>fasting blood sugar > 120 mg/dl</option>
-          <option value=0>fasting blood sugar < 120 mg/dl</option>
+        <label for="distal_left_anterior_descending_artery">Distal Left Anterior Descending Artery</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Distal Left Anterior Descending Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="distal_left_anterior_descending_artery" id="distal_left_anterior_descending_artery" class="form-control">
+          <option value=0>0</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="resting_electrocardiographic_results">Resting Electrocardiographic Results</label>
-        <select name="resting_electrocardiographic_results" id="resting_electrocardiographic_results" class="form-control">
+        <label for="main_circumflex_artery">Main Circumflex Artery</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Main Circumflex Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="main_circumflex_artery" id="main_circumflex_artery" class="form-control">
           <option value=0>Value = 0</option>
           <option value=1>Value = 1</option>
           <option value=2>Value = 2</option>
@@ -97,59 +119,72 @@
       </div>
 
       <div class="form-group">
-        <label for="maximum_heart_rate_achieved">Maximum Heart Rate Achieved</label>
-        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in beats per minute (BPM)">
+        <label for="proximal_right_coronary_artery">Proximal Right Coronary Artery</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Proximal Right Coronary Artery">
           <img src="static/images/help3.png">
         </button>
-        <input type="number" min="0" max="300" name="maximum_heart_rate_achieved" value="" class="form-control" required>
-      </div>
-
-      <div class="form-group">
-        <label for="exercise_induced_angina">Exercise Induced Angina</label>
-        <select name="exercise_induced_angina" id="exercise_induced_angina" class="form-control">
-          <option value=1>Yes</option>
-          <option value=0>No</option>
+        <select name="proximal_right_coronary_artery" id="proximal_right_coronary_artery" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="ST_depression_induced">ST depression induced</label>
+        <label for="distal_right_coronary_artery">Distal Right Coronary Artery</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Distal Right Coronary Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="distal_right_coronary_artery" id="distal_right_coronary_artery" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="first_obtuse_marginal ">First Obtuse Marginal</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="First Obtuse Marginal">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="first_obtuse_marginal" id="first_obtuse_marginal" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="old_peak">Old Peak</label>
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="ST depression induced by exercise relative to rest">
           <img src="static/images/help3.png">
         </button>
-        <input type="number" min="0" max="7" step="any" name="ST_depression_induced" value="" class="form-control" required>
+        <input type="number" min="0" max="7" name="old_peak" value="" class="form-control" required>
       </div>
 
       <div class="form-group">
-        <label for="slope_of_the_peak_exercise_ST_segment">Slope of the Peak Exercise ST segment</label>
-        <select name="slope_of_the_peak_exercise_ST_segment" id="slope_of_the_peak_exercise_ST_segment" class="form-control">
-          <option value=0>0</option>
-          <option value=1>1</option>
-          <option value=2>2</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="major_vessels_colored_by_flourosopy">Major Vessels Colored by Flourosopy</label>
-        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="number of major vessels (0-3) colored by flourosopy">
+        <label for="rldv5e">rldv5e</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="height at peak exercise">
           <img src="static/images/help3.png">
         </button>
-        <select name="major_vessels_colored_by_flourosopy" id="major_vessels_colored_by_flourosopy" class="form-control">
-          <option value=0>0</option>
-          <option value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option>
+        <input type="number" min="0" max="300" name="rldv5e" value="" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="ramus">ramus</label>
+        <select name="ramus" id="ramus" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="thal">thal</label>
-        <select name="thal" id="thal" class="form-control">
-          <option value=0>0</option>
-          <option value=1>Normal = 3</option>
-          <option value=2>Fixed Defect = 6</option>
-          <option value=3>Reversible Defect = 7</option>
-        </select>
+        <label for="thalach">thalach </label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Maximum heart rate achieved">
+          <img src="static/images/help3.png">
+        </button>
+        <input type="number" min="0" max="300" step="any" name="thalach" value="" class="form-control" required>
       </div>
 
       <div class="form-group">
@@ -220,7 +255,8 @@
 
 
 <footer role="contentinfo">
-  <p>&copy; <a href="https://uwaterloo.ca/" title="uwaterloo" target="_blank">uwaterloo.com</a> | ECE651 Project </p>
+  <p>&copy; <a href="https://uwaterloo.ca/" title="uwaterloo" target="_blank">uwaterloo.com</a> | ECE651 Project |
+    <a href="/feedback/" title="feedback" >feedback</a> </p>
 </footer>
 </body>
 </html>
