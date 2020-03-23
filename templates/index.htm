@@ -41,6 +41,15 @@
       </div>
 
       <div class="form-group">
+        <label for="test_date">Date of Medical Test</label>
+        <!-- <label for="age" class="units">(in years)</label> -->
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Date of Medical Test">
+          <img src="static/images/help3.png">
+        </button>
+        <input type="date" id="test_date" name="test_date" class="form-control" required>
+        </div>
+
+      <div class="form-group">
       <label for="age">Age</label>
       <!-- <label for="age" class="units">(in years)</label> -->
       <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in years">
@@ -172,6 +181,9 @@
 
       <div class="form-group">
         <label for="ramus">ramus</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="ramus">
+          <img src="static/images/help3.png">
+        </button>
         <select name="ramus" id="ramus" class="form-control">
           <option value=0>Value = 0</option>
           <option value=1>Value = 1</option>
