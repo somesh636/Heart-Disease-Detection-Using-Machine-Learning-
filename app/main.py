@@ -6,13 +6,14 @@ import numpy as np
 application = app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb+srv://User_info:userinfo123@cluster0-hmtuj.gcp.mongodb.net/test?retryWrites=true&w=majority"
 mongo = PyMongo(app)
-u_d=mongo.db.user_data2
-u_f=mongo.db.feedback_data2
+u_d=mongo.db.user_data3
+u_f=mongo.db.feedback_data3
 @app.route('/',methods=['POST','GET'])
 def posts():
     if request.method == 'POST':
         post_first_name = request.form['first_name']
         post_last_name = request.form['last_name']
+        post_test_date = request.form['test_date']
         post_age = request.form['age']
         post_gender = request.form['gender']
         post_chest_pain_type = request.form['chest_pain_type']
@@ -28,8 +29,11 @@ def posts():
         post_ramus = request.form['ramus']
         post_thalach = request.form['thalach']
         
+        
+
         new_post= {'first_name' : post_first_name,\
             'last_name' : post_last_name,\
+            'test_date' : post_test_date,\
             'age':post_age,\
             'gender':post_gender,\
             'chest_pain_type':post_chest_pain_type,\
