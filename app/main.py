@@ -3,6 +3,8 @@ from flask_pymongo import PyMongo
 from datetime import datetime
 import pickle
 import numpy as np
+import os 
+
 application = app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb+srv://User_info:userinfo123@cluster0-hmtuj.gcp.mongodb.net/test?retryWrites=true&w=majority"
 mongo = PyMongo(app)
@@ -56,10 +58,11 @@ def posts():
             post_ramus,\
             post_thalach ]
         #Put your ML code here
-        # inp=np.reshape(inp,(1, 14))
-        # model= pickle.load(open('model_pickle.pkl','rb'))
+        inp=np.reshape(inp,(1, 14))
+        #model= pickle.load(open('model_pickle.pkl','rb'))
+        model= pickle.load(open(os.path.join('Pickle_Objects','algorithm.pkl'),'rb'))
         # print(inp)
-        # prediction=model.predict(inp)
+        prediction=model.predict(inp)
         
         prediction=1# comment this after implementation
         #End your ML code here
