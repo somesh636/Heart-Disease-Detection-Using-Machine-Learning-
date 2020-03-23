@@ -24,6 +24,8 @@ def data_preprocessing(df):
     data = df_updated[['age', 'sex', 'cp', 'chol', 'ladprox', 'laddist', 'cxmain', 'rcaprox', 'rcadist', 'om1', 'oldpeak', 'rldv5e', 'ramus', 'thalach', 'target']] 
 
     X = data.drop(['target'],axis=1)
+    print("X.shape: ",X.shape)
+    print("Data.shape", data.shape)
     y = data['target']
 
     # split data train 80 % and test 20 %
