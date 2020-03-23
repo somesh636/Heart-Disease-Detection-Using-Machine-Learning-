@@ -64,7 +64,7 @@ def posts():
         # print(inp)
         prediction=model.predict(inp)
         
-        prediction=1# comment this after implementation
+        #prediction=1# comment this after implementation
         #End your ML code here
         if prediction==1:
             t='High Risk of Heart Disease'
