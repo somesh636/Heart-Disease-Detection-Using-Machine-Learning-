@@ -1,5 +1,4 @@
 //tabbed panels
-
 // declare globals to hold all the links and all the panel elements
 var tabLinks;
 var tabPanels;
@@ -42,4 +41,7 @@ function displayPanel(tabToActivate) {
 			tabPanels[i].style.display = "none";
         }
 	}
+}
+function on_click() {
+	alert("The form was submitted");
 }
