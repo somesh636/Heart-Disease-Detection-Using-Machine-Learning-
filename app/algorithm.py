@@ -22,6 +22,7 @@ def data_preprocessing(df):
     standardScaler.fit_transform(df_updated)
 
     data = df_updated[['age', 'sex', 'cp', 'chol', 'ladprox', 'laddist', 'cxmain', 'rcaprox', 'rcadist', 'om1', 'oldpeak', 'rldv5e', 'ramus', 'thalach', 'target']] 
+    print("DATA: \n",data)
 
     X = data.drop(['target'],axis=1)
     print("X.shape: ",X.shape)
@@ -49,12 +50,15 @@ if __name__ == "__main__":
     from sklearn.model_selection import train_test_split
     from sklearn.feature_selection import SelectKBest
     from sklearn.feature_selection import chi2
+
+    pd.set_option('display.max_rows',None)
+    pd.set_option('display.max_columns',None)
     
     # Reading heart disease dataset
     df = pd.read_csv('~/D_Drive/Projects/Python/aggregated.csv')
     x_train, x_test, y_train, y_test = data_preprocessing(df)
     #random forest classifier with n_estimators=10 (default)
-    classifier = RandomForestClassifier(random_state=42)
+    classifier = RandomForestClassifier(n_estimators = 10, random_state=42)
 
     # fitting the model
     classifier = classifier.fit(x_train,y_train)
@@ -66,5 +70,5 @@ if __name__ == "__main__":
     print("Accuracy is: ", total_accuracy)
     # #print("predict_value: ", predict_value)
     # dir_path = os.path.dirname(os.path.realpath(__file__))
-    # dest = os.path.join(dir_path,'pickle_oblect')
+    # dest = os.path.join(dir_path,'Pickle_Objects')
     # pickle.dump(classifier, open(os.path.join(dest, 'algorithm.pkl'), 'wb'), protocol=4)
