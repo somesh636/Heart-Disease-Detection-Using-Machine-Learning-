@@ -107,6 +107,6 @@ def feedback1():
     else:
         return render_template('feedback.html')
         
-        
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
