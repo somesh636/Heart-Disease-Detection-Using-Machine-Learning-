@@ -30,8 +30,6 @@ def posts():
         post_rldv5e = request.form['rldv5e']
         post_ramus = request.form['ramus']
         post_thalach = request.form['thalach']
-        
-        
 
         new_post= {'first_name' : post_first_name,\
             'last_name' : post_last_name,\
@@ -50,35 +48,41 @@ def posts():
             'rldv5e' : post_rldv5e,\
             'ramus' : post_ramus,\
             'thalach' : post_thalach  }
+
         u_d.insert(new_post)
+
         inp=[post_age,post_gender,post_chest_pain_type,post_serum_cholestoral,\
             post_proximal_left_anterior_descending_artery,post_distal_left_anterior_descending_artery,post_main_circumflex_artery,\
             post_proximal_right_coronary_artery,post_distal_right_coronary_artery,post_first_obtuse_marginal ,\
             post_old_peak,post_rldv5e,\
             post_ramus,\
             post_thalach ]
-        #Put your ML code here
-        inp=np.reshape(inp,(1, 14))
-        #model= pickle.load(open('model_pickle.pkl','rb'))
-        model= pickle.load(open(os.path.join('Pickle_Objects','algorithm.pkl'),'rb'))
-        # print(inp)
-        prediction=model.predict(inp)
-        
-        #prediction=1# comment this after implementation
-        #End your ML code here
-        if prediction==1:
-            t='High Risk of Heart Disease'
-        elif prediction==0:
-            t='Low Risk of Heart Disease'
+
+        predict = Ml_Prediction(inp)
 
         if int(new_post["gender"])==1:
             new_post["gender"]="male"
         else:
             new_post["gender"]="female"
-        return render_template('result.html',f_data=new_post,prediction=t)
+        return render_template('result.html',f_data=new_post,prediction=predict)
         
     else:
         return render_template('index.htm')
+
+@app.route('/',methods=['POST','GET'])    
+def Ml_Prediction(inp):
+
+    inp=np.reshape(inp,(1, 14))
+    model= pickle.load(open(os.path.join('Pickle_Objects','algorithm.pkl'),'rb'))
+    prediction=model.predict(inp)
+    
+    if prediction==1:
+        predict='High Risk of Heart Disease'
+    elif prediction==0:
+        predict='Low Risk of Heart Disease'
+
+    return predict
+
 
 @app.route('/feedback/',methods=['POST','GET'])        
 def feedback1():
@@ -102,5 +106,7 @@ def feedback1():
         return redirect(url_for('posts'))  
     else:
         return render_template('feedback.html')
+        
+        
 if __name__ == '__main__':
     app.run(debug=True)
