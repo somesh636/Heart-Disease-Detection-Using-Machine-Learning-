@@ -3,7 +3,7 @@ import tempfile
 import pytest
 from bs4 import BeautifulSoup
 
-from project.app.application import create_app
+from app.application import create_app
 #"""
 """ START OF TESTS """
 ### APP TESTS
