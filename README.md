@@ -14,30 +14,6 @@
 ## Structure
 
 The project (so far) is arranged as follows
-.|.
-.|app|
-..|app.py|
-..|requirements<sub>flask.txt</sub>|
-..|static|
-...|<static content for site>|
-..|templates|
-...|<html templates for site>|
-.|analysis|
-..|data|
-..|documentation|
-...|<information on the dataset>|
-..|raw<sub>data</sub>|
-...|<the raw UCI heart disease dataset>|
-..|utils|
-...|<python scripts for data preparation>|
-.|docker|
-..|analysis|
-..|app|
-...|Dockerfile|
-..|database|
-.|kubernetes.yaml|
-.|README.md|
-
 .<br/>
 +-- app<br/>
 | 	+-- app.py<br/>
@@ -57,9 +33,9 @@ The project (so far) is arranged as follows
 |	|	+-- 'python scripts for data preparation'<br/>
 +-- docker<br/>
 |	+-- analysis<br/>
-|	+-- app<br/>
+|	+-- app/<br/>
 |	|	+-- Dockerfile<br/>
-|	+-- database<br/>
+|	+-- database/<br/>
 +-- kubernetes.yaml<br/>
 +-- README.md<br/>
 

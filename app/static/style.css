@@ -5,6 +5,35 @@ html, body {
   opacity: .98;
 
 }
+<<<<<<< HEAD
+=======
+/* .required:after {
+    content:" *";
+    color: red;
+  } */
+
+.required:before{
+content:"*";
+font-weight:bold;
+}
+
+.form-container
+{
+	/* background-color: #fff; */
+    /* box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1), 2px 2px 2px 2px rgba(0,0,0,0.1), 2px 2px 2px 2px rgba(0,0,0,0.1); */
+	/* border-radius: 2px;	 */
+	/* border-color: #333; */
+	/* font-family: 'Montserrat', Arial, Helvetica, sans-serif; */
+
+
+	border-radius: 10px;
+
+	background-color: #f2f2f2;
+	padding: 20px;
+
+
+}
+>>>>>>> dev
 
 /* .btn {
 	display:block;
@@ -12,7 +41,11 @@ html, body {
 	width: 20px;
 	border-radius: 70%;
 	border: 10px solid red;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> dev
 } */
 
 h1, h2, h3, h4, h5, h6, p {
