@@ -4,12 +4,13 @@ from datetime import datetime
 import pickle
 import numpy as np
 import os 
+import pandas as pd
 
 application = app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb+srv://User_info:userinfo123@cluster0-hmtuj.gcp.mongodb.net/test?retryWrites=true&w=majority"
 mongo = PyMongo(app)
-u_d=mongo.db.user_data3
-u_f=mongo.db.feedback_data3
+u_d=mongo.db.user_data4
+u_f=mongo.db.feedback_data4
 @app.route('/',methods=['POST','GET'])
 def posts():
     if request.method == 'POST':
@@ -49,8 +50,7 @@ def posts():
             'ramus' : post_ramus,\
             'thalach' : post_thalach  }
 
-        u_d.insert(new_post)
-
+        
         inp=[post_age,post_gender,post_chest_pain_type,post_serum_cholestoral,\
             post_proximal_left_anterior_descending_artery,post_distal_left_anterior_descending_artery,post_main_circumflex_artery,\
             post_proximal_right_coronary_artery,post_distal_right_coronary_artery,post_first_obtuse_marginal ,\
@@ -58,13 +58,25 @@ def posts():
             post_ramus,\
             post_thalach ]
 
-        predict = Ml_Prediction(inp)
-
+        predict,a = Ml_Prediction(inp)
+        # print(predict)
+        # print(a[0])
+        new_post['prediction']=str(a[0])
+        
         if int(new_post["gender"])==1:
             new_post["gender"]="male"
         else:
             new_post["gender"]="female"
+
+        u_d.insert(new_post)
+
+        cursor = u_d.find({})
+        df =  pd.DataFrame(list(cursor))
+        df.drop(columns=['_id'], inplace=True)
+        df.to_csv('record_data.csv', index=False)
+
         return render_template('result.html',f_data=new_post,prediction=predict)
+
         
     else:
         return render_template('index.htm')
@@ -81,7 +93,7 @@ def Ml_Prediction(inp):
     elif prediction==0:
         predict='Low Risk of Heart Disease'
 
-    return predict
+    return [predict, prediction]
 
 
 @app.route('/feedback/',methods=['POST','GET'])        
