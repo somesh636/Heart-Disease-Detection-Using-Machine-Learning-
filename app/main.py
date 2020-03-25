@@ -23,11 +23,11 @@ def posts():
 
         predict = Ml_Prediction(inp)
 
-        if int(new_post["gender"])==1:
-            new_post["gender"]="male"
+        if int(user_post["gender"])==1:
+            user_post["gender"]="male"
         else:
-            new_post["gender"]="female"
-        return render_template('result.html',f_data=new_post,prediction=predict)
+            user_post["gender"]="female"
+        return render_template('result.html',f_data=user_post,prediction=predict)
         
     else:
         return render_template('index.htm')
