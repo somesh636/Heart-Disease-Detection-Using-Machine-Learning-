@@ -5,8 +5,12 @@ from datetime import datetime
 import pickle
 import numpy as np
 import os 
+import pandas as pd
 
 application = app = Flask(__name__)
+# NOTE: Please change the Mongo URI to match your local configuration for tests
+# This IP address reflects the current docker settings, need to find a way to
+# generate dynamically
 app.config["MONGO_URI"] = "mongodb://172.17.0.2:27017/testdb"
 mongo = PyMongo(app)
 
@@ -27,8 +31,7 @@ def posts():
             user_post["gender"]="male"
         else:
             user_post["gender"]="female"
-        return render_template('result.html',f_data=user_post,prediction=predict)
-        
+        return render_template('result.html',f_data=user_post,prediction=predict)        
     else:
         return render_template('index.htm')
 
@@ -44,7 +47,7 @@ def Ml_Prediction(inp):
     elif prediction==0:
         predict='Low Risk of Heart Disease'
 
-    return predict
+    return [predict, prediction]
 
 
 @app.route('/feedback/',methods=['POST','GET'])        
