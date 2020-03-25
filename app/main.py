@@ -9,8 +9,8 @@ import pandas as pd
 application = app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb+srv://User_info:userinfo123@cluster0-hmtuj.gcp.mongodb.net/test?retryWrites=true&w=majority"
 mongo = PyMongo(app)
-u_d=mongo.db.user_data5
-u_f=mongo.db.feedback_data5
+u_d=mongo.db.user_data6
+u_f=mongo.db.feedback_data6
 @app.route('/',methods=['POST','GET'])
 def posts():
     if request.method == 'POST':
