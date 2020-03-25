@@ -10,14 +10,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="{{url_for('static', filename='tabs.js')}}"></script>
 
-<<<<<<< HEAD
 </head>
+<p hidden> Landing page</p>
 
-=======
-
-</head>
-<p hidden>brief description of page</p>
->>>>>>> dev
 <body>
 <header role="banner">
   <h1>Know Your Heart</h1>
@@ -31,19 +26,6 @@
 <div class="row">
   <div class="col">
     <form  action="/" method="POST" id="form">
-<<<<<<< HEAD
-      <div class="form-group">
-      <label for="age">Age</label>
-      
-      <!-- <label for="age" class="units">(in years)</label> -->
-
-      <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in years">
-        <img src="static/images/help3.png">
-      </button>
-
-      <input type="number"  name="age" value="" class="form-control">
-=======
-
       <div class="form-group row style=" style="padding-left: 15px">
         <div class="col-xs-3">
           <label for="first_name">
@@ -73,7 +55,7 @@
         <img src="static/images/help3.png">
       </button>
       <input type="number" min="0" max="150"  name="age" value="" class="form-control" required>
->>>>>>> dev
+
       </div>
 
       <div class="form-group">
@@ -100,30 +82,6 @@
         </div>
         
       <div class="form-group">
-<<<<<<< HEAD
-        <label for="resting_blood_pressure">Resting Blood Pressure</label>
-        <!-- <label for="resting_blood_pressure" class="units">(in mm Hg on admission to the hospital)</label> -->
-        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in mm Hg on admission to the hospital">
-          <img src="static/images/help3.png">
-        </button>
-        <input type="number" name="resting_blood_pressure" value="" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="serum_cholestoral">Serum Cholestoral</label>
-        <!-- <label for="serum_cholestoral" class="units">(in mg/dl)</label> -->
-        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in mg/dl">
-          <img src="static/images/help3.png">
-        </button>
-        <input type="number" name="serum_cholestoral" value="" class="form-control">
-      </div>
-      
-      <div class="form-group">
-        <label for="fasting_blood_sugar">Fasting Blood Sugar</label>
-        <select name="fasting_blood_sugar" id="fasting_blood_sugar" class="form-control">
-          <option value=1>fasting blood sugar > 120 mg/dl</option>
-          <option value=0>fasting blood sugar < 120 mg/dl</option>
-=======
         <label for="serum_cholestoral">Serum cholestoral</label>
         <!-- <label for="serum_cholestoral" class="units">(in mm Hg on admission to the hospital)</label> -->
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="serum cholestoral in mg/dl">
@@ -154,21 +112,16 @@
           <option value=0>0</option>
           <option value=1>1</option>
           <option value=2>2</option>
->>>>>>> dev
+
         </select>
       </div>
 
       <div class="form-group">
-<<<<<<< HEAD
-        <label for="resting_electrocardiographic_results">Resting Electrocardiographic Results</label>
-        <select name="resting_electrocardiographic_results" id="resting_electrocardiographic_results" class="form-control">
-=======
         <label for="main_circumflex_artery">Main Circumflex Artery</label>
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Main Circumflex Artery">
           <img src="static/images/help3.png">
         </button>
         <select name="main_circumflex_artery" id="main_circumflex_artery" class="form-control">
->>>>>>> dev
           <option value=0>Value = 0</option>
           <option value=1>Value = 1</option>
           <option value=2>Value = 2</option>
@@ -176,17 +129,6 @@
       </div>
 
       <div class="form-group">
-<<<<<<< HEAD
-        <label for="maximum_heart_rate_achieved">Maximum Heart Rate Achieved</label>
-        <input type="number" name="maximum_heart_rate_achieved" value="" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="exercise_induced_angina">Exercise Induced Angina</label>
-        <select name="exercise_induced_angina" id="exercise_induced_angina" class="form-control">
-          <option value=1>Yes</option>
-          <option value=0>No</option>
-=======
         <label for="proximal_right_coronary_artery">Proximal Right Coronary Artery</label>
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Proximal Right Coronary Artery">
           <img src="static/images/help3.png">
@@ -207,43 +149,11 @@
           <option value=0>Value = 0</option>
           <option value=1>Value = 1</option>
           <option value=2>Value = 2</option>
->>>>>>> dev
+
         </select>
       </div>
 
       <div class="form-group">
-<<<<<<< HEAD
-        <label for="ST_depression_induced">ST_depression_induced</label>
-        <input type="number" step="any" name="ST_depression_induced" value="" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="slope_of_the_peak_exercise_ST_segment">Slope of the Peak Exercise ST segment</label>
-        <select name="slope_of_the_peak_exercise_ST_segment" id="slope_of_the_peak_exercise_ST_segment" class="form-control">
-          <option value=0>0</option>
-          <option value=1>1</option>
-          <option value=2>2</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="major_vessels_colored_by_flourosopy">Major Vessels Colored by Flourosopy</label>
-        <select name="major_vessels_colored_by_flourosopy" id="major_vessels_colored_by_flourosopy" class="form-control">
-          <option value=0>0</option>
-          <option value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="thal">thal</label>
-        <select name="thal" id="thal" class="form-control">
-          <option value=0>0</option>
-          <option value=1>Normal = 3</option>
-          <option value=2>Fixed Defect = 6</option>
-          <option value=3>Reversible Defect = 7</option>
-=======
         <label for="first_obtuse_marginal ">First Obtuse Marginal</label>
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="First Obtuse Marginal">
           <img src="static/images/help3.png">
@@ -280,15 +190,11 @@
           <option value=0>Value = 0</option>
           <option value=1>Value = 1</option>
           <option value=2>Value = 2</option>
->>>>>>> dev
+
         </select>
       </div>
 
       <div class="form-group">
-<<<<<<< HEAD
-      <br>
-      <button type="submit" name="button" class="btn btn-success">Submit</button>
-=======
         <label for="thalach">thalach </label>
         <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Maximum heart rate achieved">
           <img src="static/images/help3.png">
@@ -301,7 +207,7 @@
       <button type="submit" name="button" class="btn btn-success">Submit</button>
       &nbsp;&nbsp;
       <button type="reset" class="btn btn-info" value="Reset">Reset</button>
->>>>>>> dev
+
       </div>
     </form>
   </div>
@@ -312,15 +218,10 @@
      <div id="tabContainer">
     <div id="tabs">
       <ul>
-<<<<<<< HEAD
-        <li id="tab1"><a href="#tabPanel1">Causes</a></li>
-        <li id="tab2"><a href="#tabPanel2">Types</a></li>
-        <li id="tab3"><a href="#tabPanel3">Prevention</a></li>
-=======
         <li id="tab1"><a href="#tabPanel1"><b>Main Causes</b></a></li>
         <li id="tab2"><a href="#tabPanel2"><b>Types</b></a></li>
         <li id="tab3"><a href="#tabPanel3"><b>Prevention</b></a></li>
->>>>>>> dev
+
       </ul>
     </div>
     <div id="containers">
@@ -371,12 +272,9 @@
 
 
 <footer role="contentinfo">
-<<<<<<< HEAD
-  <p>&copy; <a href="https://uwaterloo.ca/" title="uwaterloo" target="_blank">uwaterloo.com</a> | ECE651 Project </p>
-=======
   <p>&copy; <a href="https://uwaterloo.ca/" title="uwaterloo" target="_blank">uwaterloo.com</a> | ECE651 Project |
     <a href="/feedback/" title="feedback" >feedback</a> </p>
->>>>>>> dev
+
 </footer>
 </body>
 </html>
