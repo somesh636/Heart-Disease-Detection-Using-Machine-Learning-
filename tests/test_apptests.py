@@ -3,7 +3,7 @@ import tempfile
 import pytest
 from bs4 import BeautifulSoup
 
-from app.application import create_app
+from app.main import createWebApplication as create_app
 #"""
 """ START OF TESTS """
 ### APP TESTS
@@ -52,17 +52,14 @@ def test_invalid_input(client):
 
 @pytest.fixture
 def client():
-    db_fd, db_path = tempfile.mkstemp() # create a file to be used as a temp database
-    db_uri = 'sqlite:///{0}'.format(db_path) # create the temp database URI
 
-    cv_application = create_app(db_uri)
+    mongoURI = "mongodb://172.17.0.2:27017/testdb"
+    
+    cv_application = create_app(mongo_uri)
     cv_application.config['TESTING']=True #configure for testing
 
     with cv_application.test_client() as client:
         yield client
-
-    os.close(db_fd)
-    os.unlink(db_path)
     
 """
 class test_AppInput(unittest.TestCase): # these tests deal with the input side of things
