@@ -36,29 +36,29 @@ def createWebApplication(mongo_uri):
         else:
             return render_template('index.htm')
 
-        @app.route('/',methods=['POST','GET'])    
-        def Ml_Prediction(inp):
+    @app.route('/',methods=['POST','GET'])    
+    def Ml_Prediction(inp):
             
-            inp=np.reshape(inp,(1, 14))
-            model= pickle.load(open(os.path.join('Pickle_Objects','algorithm.pkl'),'rb'))
-            prediction=model.predict(inp)
-            
-            if prediction==1:
-                predict='High Risk of Heart Disease'
-            elif prediction==0:
-                predict='Low Risk of Heart Disease'
-                
-            return [predict, prediction]
+        inp=np.reshape(inp,(1, 14))
+        model= pickle.load(open(os.path.join('Pickle_Objects','algorithm.pkl'),'rb'))
+        prediction=model.predict(inp)
+
+        if prediction==1:
+            predict='High Risk of Heart Disease'
+        elif prediction==0:
+            predict='Low Risk of Heart Disease'
+
+        return [predict, prediction]
 
 
-        @app.route('/feedback/',methods=['POST','GET'])        
-        def feedback():
-            if request.method == 'POST':
-                new_feedback = constructNewFeedback(request)
-                user_feedback.insert(new_feedback)
-                return redirect(url_for('posts'))  
-            else:
-                return render_template('feedback.html')
+    @app.route('/feedback/',methods=['POST','GET'])        
+    def feedback():
+        if request.method == 'POST':
+            new_feedback = constructNewFeedback(request)
+            user_feedback.insert(new_feedback)
+            return redirect(url_for('posts'))  
+        else:
+            return render_template('feedback.html')
 
     return app
 
