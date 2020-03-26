@@ -7,12 +7,13 @@ import numpy as np
 import os 
 import pandas as pd
 
-def createWebApplication(mongo_uri):
+def create_app(mongo_uri):
     app = Flask(__name__)
     # NOTE: Please change the Mongo URI to match your local configuration for tests
     # This IP address reflects the current docker settings, need to find a way to
     # generate dynamically
-    app.config["MONGO_URI"] = mongo_uri
+    
+    app.config["MONGO_URI"] = "mongodb://mongo_database/user_database"
     mongo = PyMongo(app)
     
     user_database_db = mongo.db.user_data
@@ -32,7 +33,7 @@ def createWebApplication(mongo_uri):
                 user_post["gender"]="male"
             else:
                 user_post["gender"]="female"
-                return render_template('result.html',f_data=user_post,prediction=predict)        
+            return render_template('result.html',f_data=user_post,prediction=predict)        
         else:
             return render_template('index.htm')
 
@@ -63,6 +64,5 @@ def createWebApplication(mongo_uri):
     return app
 
 if __name__ == '__main__':
-    mongo_uri = "mongodb://172.17.0.2:27017/testdb"
-    app = createWebApplication(mongoURI)
+    app = create_app()
     app.run()
