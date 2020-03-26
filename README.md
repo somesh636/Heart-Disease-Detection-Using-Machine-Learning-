@@ -17,7 +17,7 @@ The project (so far) is arranged as follows
 .<br/>
 +-- app<br/>
 | 	+-- app.py<br/>
-|	+-- requirements<sub>flask.txt</sub><br/>
+|	+-- requirements.txt<br/>
 |	+-- static<br/>
 |	|	+-- 'static content for site'<br/>
 |	+-- templates<br/>
@@ -27,7 +27,7 @@ The project (so far) is arranged as follows
 |	|	+-- 'the data files'<br/>
 |	+-- documentation<br/>
 |	|	+-- 'information on the dataset'<br/>
-|	+-- raw<sub>data</sub><br/>
+|	+-- raw_data<br/>
 |	|	+-- 'the raw UCI heart disease dataset'<br/>
 |	+-- utils<br/>
 |	|	+-- 'python scripts for data preparation'<br/>
@@ -36,6 +36,7 @@ The project (so far) is arranged as follows
 |	+-- app/<br/>
 |	|	+-- Dockerfile<br/>
 |	+-- database/<br/>
++-  docker-compose.yaml<br/>
 +-- kubernetes.yaml<br/>
 +-- README.md<br/>
 
@@ -45,5 +46,5 @@ The project (so far) is arranged as follows
 ## How to use
 
 1.  Navigate to the project root
-2.  At the command prompt enter \`flask run\`
-3.  Using a web browser, navigate to localhost:5000 (or 127.0.0.1:5000)
+2.  At the command prompt enter \`sudo docker-compose build && sudo docker-compose up\`
+3.  Using a web browser, navigate to localhost (default port 80)
