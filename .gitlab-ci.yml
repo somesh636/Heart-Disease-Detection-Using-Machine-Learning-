@@ -6,4 +6,4 @@ stages:
 build:
     stage: build
     script:
-      - docker build --no-cache -t /docker/app/ .
+      - docker build --no-cache -t webapp .
