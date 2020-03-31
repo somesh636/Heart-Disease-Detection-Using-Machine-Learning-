@@ -1,0 +1,9 @@
+image: docker
+
+stages:
+    - build
+
+build:
+    stage: build
+    script:
+      - docker build --no-cache -t /docker/app/ .
