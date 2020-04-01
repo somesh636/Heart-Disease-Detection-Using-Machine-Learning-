@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request,url_for,redirect
 from flask_pymongo import PyMongo
-from aux_modules.data_construction import *
+from app.aux_modules.data_construction import *
 from datetime import datetime
 import pickle
 import numpy as np
