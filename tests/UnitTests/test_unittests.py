@@ -9,7 +9,7 @@ sys.path.insert(1, '~/D_Drive/Projects/651_ECE/cardiovascular-predictions/app')
 #from app.main import createWebApplication as create_app
 #from app.aux_modules import aux
 #from app.main import Ml_prediction 
-import main
+import app.main
 
 # def makeDummyModelRequest():
 #     url = 'localhost:5000'
