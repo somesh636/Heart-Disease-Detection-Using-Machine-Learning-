@@ -1,5 +1,6 @@
 import sys
 import os
+import pickle
 import requests
 import pytest
 import unittest 
@@ -11,10 +12,9 @@ sys.path.insert(1, '~/D_Drive/Projects/651_ECE/cardiovascular-predictions/app')
 #from app.aux_modules import aux
 #from app.main import Ml_prediction 
 import app.main
-
-from app.main import createWebApplication as create_app
-from app.aux_modules import aux
-from app.main import Ml_prediction 
+from app.main import create_app as create_app
+import app.aux_modules as aux
+# from app.main import Ml_prediction 
 
 
 # import main
@@ -74,29 +74,44 @@ def test_constructNewFeedback():
 def test_constructNewPost():
     pass
 
-# Test with Heart Disease
-def test_Ml_prediction():
-    data = [50, 1, 1, 250, 2, 1, 1, 2, 1, 2, 3.0, 15, 1, 116]
-    result = Ml_prediction(data)
-    self.assertEqual(result, 1)
+# Class for Ml_Prediction Algorithm Test
+class test_Ml_prediction(unittest.TestCase):
 
-# Test without Heart Disease 
-def test_Ml_prediction():
-    data = [50, 1, 248, 1, 1, 1, 1, 1, 1, 4.0, 15, 1, 115]
-    result = Ml_prediction(data)
-    self.assertEqual(result, 0) 
+    # Test with Heart Disease
+    def test_Ml_prediction_1(self):
+        data = [[50, 1, 1, 250, 2, 1, 1, 2, 1, 2, 3.0, 15, 1, 116]]
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        dest = os.path.join(dir_path,'Pickle_Objects')
+        model = pickle.load(open(os.path.join(dest,'algorithm.pkl'),'rb'))
+        result = model.predict(data)
+        self.assertEqual(result, 1)
 
-# Test without Heart Disease with all zeros data
-def test_Ml_prediction():
-    data = [24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    result = Ml_prediction(data)
-    self.assertEqual(result, 0)
+    # Test without Heart Disease 
+    def test_Ml_prediction_2(self):
+        data = [[50, 1, 1, 248, 1, 1, 1, 1, 1, 1, 4.0, 15, 1, 115]]
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        dest = os.path.join(dir_path,'Pickle_Objects')
+        model = pickle.load(open(os.path.join(dest,'algorithm.pkl'),'rb'))
+        result = model.predict(data)       
+        self.assertEqual(result, 0) 
 
-# Test without Heart Disease with all ones data
-def test_Ml_prediction():
-    data = [13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    result = Ml_prediction(data)
-    self.assertEqual(result, 0)
+    # Test without Heart Disease with all zeros data
+    def test_Ml_prediction_3(self):
+        data = [[24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        dest = os.path.join(dir_path,'Pickle_Objects')
+        model= pickle.load(open(os.path.join(dest,'algorithm.pkl'),'rb'))
+        result=model.predict(data)
+        self.assertEqual(result, 0)
+
+    # Test without Heart Disease with all ones data
+    def test_Ml_prediction_4(self):
+        data = [[13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        dest = os.path.join(dir_path,'Pickle_Objects')
+        model= pickle.load(open(os.path.join(dest,'algorithm.pkl'),'rb'))
+        result=model.predict(data)
+        self.assertEqual(result, 0)
 
 if __name__ == "__main__":
     unittest.main()
