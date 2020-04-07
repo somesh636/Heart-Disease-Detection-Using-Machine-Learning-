@@ -3,7 +3,7 @@ import tempfile
 import pytest
 from bs4 import BeautifulSoup
 
-from app.main import createWebApplication as create_app
+from app.main import create_app as create_app
 #"""
 """ START OF TESTS """
 ### APP TESTS
@@ -38,7 +38,7 @@ def test_valid_input(client):
     #breakpoint()
     req = client.post('/', data=request_dict)
     parser = BeautifulSoup(req.data, features="lxml") # parse html
-    breakpoint()
+    #breakpoint()
     pass
 
 def test_invalid_input(client):
