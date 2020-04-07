@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <title>Know Your Heart</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('static',filename = 'style.css')}}">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{{url_for('static',filename = 'style.css')}}">
-<!--<script src="tabs.js" type="text/javascript"></script>-->
 <script src="{{url_for('static', filename='tabs.js')}}"></script>
 
 </head>
+<p hidden> Landing page</p>
 
 <body>
 <header role="banner">
@@ -25,29 +25,189 @@
 </div>
 <div class="row">
   <div class="col">
-    <form  action="index.html" method="post" id="form">
+    <form  action="/" method="POST" id="form">
+      <div class="form-group row style=" style="padding-left: 15px">
+        <div class="col-xs-3">
+          <label for="first_name">
+              First Name</label>
+          <input type="text" class="form-control" id="first_name" name="first_name" required>
+      </div>
+      <div class="col-xs-3" style="padding-left: 40px" >
+          <label for="last_name">
+              Last Name</label>
+          <input type="text" class="form-control" id="last_name" name="last_name" required>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="test_date">Date of Medical Test</label>
+        <!-- <label for="age" class="units">(in years)</label> -->
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Date of Medical Test">
+          <img src="static/images/help3.png">
+        </button>
+        <input type="date" id="test_date" name="test_date" class="form-control" required>
+        </div>
+
       <div class="form-group">
       <label for="age">Age</label>
-      <label for="age" class="units">(in years)</label>
-      <input type="number" name="age" value="" class="form-control">
+      <!-- <label for="age" class="units">(in years)</label> -->
+      <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="in years">
+        <img src="static/images/help3.png">
+      </button>
+      <input type="number" min="0" max="150"  name="age" value="" class="form-control" required>
+
       </div>
 
       <div class="form-group">
-      <label for="chest_pain_type">Chest Pain Type</label>
-      <label for="chest_pain_type" class="units">(Chest pain on a scale of 0 to 4)</label>
-      <input type="number" name="chest_pain_type" value="" class="form-control">
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender" class="form-control">
+          <option value=1>Male</option>
+          <option value=0>Female</option>
+        </select>
+        </div>
+
+      <div class="form-group">
+        <label for="chest_pain_type">Chest Pain Type</label>
+        <!-- <label for="chest_pain_type" class="units">(Chest pain on a scale of 0 to 4)</label> -->
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Chest pain on a scale of 0 to 4">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="chest_pain_type" id="chest_pain_type" class="form-control">
+          <option value=0>0</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+        </select>
+        </div>
+        
+      <div class="form-group">
+        <label for="serum_cholestoral">Serum cholestoral</label>
+        <!-- <label for="serum_cholestoral" class="units">(in mm Hg on admission to the hospital)</label> -->
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="serum cholestoral in mg/dl">
+          <img src="static/images/help3.png">
+        </button>
+        <input type="number" min="0" max="700" name="serum_cholestoral" value="" class="form-control" required>
       </div>
 
       <div class="form-group">
-      <label for="gender">Gender</label>
-      <select name="gender" id="gender" class="form-control">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
+        <label for="proximal_left_anterior_descending_artery">Proximal Left Anterior Descending Artery</label>
+        <!-- <label for="proximal_left_anterior_descending_artery" class="units">(in mg/dl)</label> -->
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Proximal Left Anterior Descending Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="proximal_left_anterior_descending_artery" id="proximal_left_anterior_descending_artery" class="form-control">
+          <option value=0>0</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+        </select>
       </div>
-      </select>
+      
+      <div class="form-group">
+        <label for="distal_left_anterior_descending_artery">Distal Left Anterior Descending Artery</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Distal Left Anterior Descending Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="distal_left_anterior_descending_artery" id="distal_left_anterior_descending_artery" class="form-control">
+          <option value=0>0</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="main_circumflex_artery">Main Circumflex Artery</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Main Circumflex Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="main_circumflex_artery" id="main_circumflex_artery" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="proximal_right_coronary_artery">Proximal Right Coronary Artery</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Proximal Right Coronary Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="proximal_right_coronary_artery" id="proximal_right_coronary_artery" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="distal_right_coronary_artery">Distal Right Coronary Artery</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Distal Right Coronary Artery">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="distal_right_coronary_artery" id="distal_right_coronary_artery" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
+
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="first_obtuse_marginal ">First Obtuse Marginal</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="First Obtuse Marginal">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="first_obtuse_marginal" id="first_obtuse_marginal" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="old_peak">Old Peak</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="ST depression induced by exercise relative to rest">
+          <img src="static/images/help3.png">
+        </button>
+        <input type="number" min="0" max="7" step = 0.01 name="old_peak" value="" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="rldv5e">rldv5e</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="height at peak exercise">
+          <img src="static/images/help3.png">
+        </button>
+        <input type="number" min="0" max="300" step = 0.01 name="rldv5e" value="" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="ramus">ramus</label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="ramus">
+          <img src="static/images/help3.png">
+        </button>
+        <select name="ramus" id="ramus" class="form-control">
+          <option value=0>Value = 0</option>
+          <option value=1>Value = 1</option>
+          <option value=2>Value = 2</option>
+
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="thalach">thalach </label>
+        <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Maximum heart rate achieved">
+          <img src="static/images/help3.png">
+        </button>
+        <input type="number" min="0" max="300" step="any" name="thalach" value="" class="form-control" required>
+      </div>
+
       <div class="form-group">
       <br>
       <button type="submit" name="button" class="btn btn-success">Submit</button>
+      &nbsp;&nbsp;
+      <button type="reset" class="btn btn-info" value="Reset">Reset</button>
+
       </div>
     </form>
   </div>
@@ -58,9 +218,10 @@
      <div id="tabContainer">
     <div id="tabs">
       <ul>
-        <li id="tab1"><a href="#tabPanel1">Causes</a></li>
-        <li id="tab2"><a href="#tabPanel2">Types</a></li>
-        <li id="tab3"><a href="#tabPanel3">Prevention</a></li>
+        <li id="tab1"><a href="#tabPanel1"><b>Main Causes</b></a></li>
+        <li id="tab2"><a href="#tabPanel2"><b>Types</b></a></li>
+        <li id="tab3"><a href="#tabPanel3"><b>Prevention</b></a></li>
+
       </ul>
     </div>
     <div id="containers">
@@ -111,7 +272,9 @@
 
 
 <footer role="contentinfo">
-  <p>&copy; <a href="https://uwaterloo.ca/" title="uwaterloo" target="_blank">uwaterloo.com</a> | ECE651 Project </p>
+  <p>&copy; <a href="https://uwaterloo.ca/" title="uwaterloo" target="_blank">uwaterloo.com</a> | ECE651 Project |
+    <a href="/feedback/" title="feedback" >feedback</a> </p>
+
 </footer>
 </body>
 </html>

@@ -1,7 +1,6 @@
 # *Know Your Heart*
 # ECE 651 Software Engineering Project
 
-
 <a id="org6690aa0"></a>
 
 ## Overview
@@ -21,54 +20,31 @@
 ## Structure
 
 The project (so far) is arranged as follows
-.|.
-.|app|
-..|app.py|
-..|requirements<sub>flask.txt</sub>|
-..|static|
-...|<static content for site>|
-..|templates|
-...|<html templates for site>|
-.|analysis|
-..|data|
-..|documentation|
-...|<information on the dataset>|
-..|raw<sub>data</sub>|
-...|<the raw UCI heart disease dataset>|
-..|utils|
-...|<python scripts for data preparation>|
-.|docker|
-..|analysis|
-..|app|
-...|Dockerfile|
-..|database|
-.|kubernetes.yaml|
-.|README.md|
-
-.
-+-- app
-| 	+-- app.py
-|	+-- requirements<sub>flask.txt</sub>
-|	+-- static
-|	|	+-- 'static content for site'
-|	+-- templates
-|	|	+-- 'html templates for site'
-+-- analysis
-| 	+-- data
-|	|	+-- 'the data files'
-|	+-- documentation
-|	|	+-- 'information on the dataset'
-|	+-- raw<sub>data</sub>
-|	|	+-- 'the raw UCI heart disease dataset'
-|	+-- utils
-|	|	+-- 'python scripts for data preparation'
-+-- docker
-|	+-- analysis
-|	+-- app
-|	|	+-- Dockerfile
-|	+-- database
-+-- kubernetes.yaml
-+-- README.md
+.<br/>
++-- app<br/>
+| 	+-- app.py<br/>
+|	+-- requirements.txt<br/>
+|	+-- static<br/>
+|	|	+-- 'static content for site'<br/>
+|	+-- templates<br/>
+|	|	+-- 'html templates for site'<br/>
++-- analysis<br/>
+| 	+-- data<br/>
+|	|	+-- 'the data files'<br/>
+|	+-- documentation<br/>
+|	|	+-- 'information on the dataset'<br/>
+|	+-- raw_data<br/>
+|	|	+-- 'the raw UCI heart disease dataset'<br/>
+|	+-- utils<br/>
+|	|	+-- 'python scripts for data preparation'<br/>
++-- docker<br/>
+|	+-- analysis<br/>
+|	+-- app/<br/>
+|	|	+-- Dockerfile<br/>
+|	+-- database/<br/>
++-  docker-compose.yaml<br/>
++-- kubernetes.yaml<br/>
++-- README.md<br/>
 
 
 <a id="org9556092"></a>
@@ -76,9 +52,5 @@ The project (so far) is arranged as follows
 ## How to use
 
 1.  Navigate to the project root
-2.  At the command prompt enter \`flask run\`
-3.  Using a web browser, navigate to localhost:5000 (or 127.0.0.1:5000)
-
-To run the Website make the backend you Working Directory and execute the following command 
-$ flask run
-ctrl+click on the http://127.0.0.1:5000/ to run and Press CTRL+C to quit 
+2.  At the command prompt enter \`sudo docker-compose build && sudo docker-compose up\`
+3.  Using a web browser, navigate to localhost (default port 80)
