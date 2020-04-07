@@ -8,6 +8,13 @@
 -   This project is a web application which uses machine learning to analyze the UCI heart disease dataset and make predictions based on supplied medical data.
 -   The website should display the risk factors to the user as well as a probability or confidence score of their health in the coming years. If possible, the lifestyle choices to be made should also be displayed.
 
+# Link for the Website
+* IP Address: http://35.196.37.255/
+* URL: https://bit.ly/34in0Rq
+
+# Link for the Gitlab Project Repository 
+- https://git.uwaterloo.ca/cardiovascular-project-ece651/cardiovascular-predictions
+
 
 <a id="orgdcf927c"></a>
 
